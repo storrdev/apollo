@@ -1,0 +1,7 @@
+/*
+*	Make app full window height
+*/
+
+html, body, .off-canvas-wrap, .inner-wrap, .main-section {
+	height: 100%;
+}

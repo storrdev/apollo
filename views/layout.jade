@@ -1,7 +1,43 @@
 doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+html(ng-app='apollo')
+	head
+		title= title
+		link(rel='stylesheet', href='css/font-awesome.min.css')
+		link(rel='stylesheet', href='/css/normalize.css')
+		link(rel='stylesheet', href='/css/foundation.css')
+		link(rel='stylesheet', href='/css/apollo.css')
+	body(ng-controller='apolloPlayerCtrl')
+		div.off-canvas-wrap(data-offcanvas)
+			div.inner-wrap
+				nav.tab-bar
+					section.left-small
+						a.left-off-canvas-toggle.menu-icon(href='#')
+							span
+					section.middle.tab-bar-section
+						h1.title= title
+				aside.left-off-canvas-menu(ng-controller='offCanvasCtrl')
+					ul.off-canvas-list
+						li
+							label= title
+						li(ng-click='mainView("artists")')
+							a(href='#') Artists
+						li
+							a(href='#') Albums
+						li
+							a(href='#') Songs
+				section.main-section
+					block content
+				a.exit-off-canvas
+		script(src='js/vendor/jquery.js')
+		script(src='js/vendor/jquery.cookie.js')
+		script(src='js/vendor/fastclick.js')
+		script(src='js/vendor/modernizr.js')
+		script(src='js/vendor/placeholder.js')
+		script(src='js/foundation.min.js')
+		script(src='js/angular/angular.js')
+		script(src='js/apollo.js')
+		script(src='js/artist.js')
+		script.
+			$(document).foundation({
+				close_on_click : false
+			});
